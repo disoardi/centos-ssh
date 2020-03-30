@@ -448,3 +448,6 @@ $ ssh \
   -o UserKnownHostsFile=/dev/null \
   app-admin@{{docker-host-ip}}
 ```
+
+## Credits
+Forked from jdeathe
