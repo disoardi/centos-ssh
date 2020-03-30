@@ -26,13 +26,13 @@ RUN rpm --rebuilddb \
 	&& yum -y install \
 			--setopt=tsflags=nodocs \
 			--disableplugin=fastestmirror \
-		inotify-tools-3.14-8.el7 \
-		openssh-clients-7.4p1-21.el7 \
-		openssh-server-7.4p1-21.el7 \
-		openssl-1.0.2k-19.el7 \
-		python-setuptools-0.9.8-7.el7 \
-		sudo-1.8.23-4.el7 \
-		yum-plugin-versionlock-1.1.31-52.el7 \
+		inotify-tools \
+		openssh-clients \
+		openssh-server \
+		openssl \
+		python-setuptools \
+		sudo \
+		yum-plugin-versionlock \
 	&& yum versionlock add \
 		inotify-tools \
 		openssh \
@@ -99,16 +99,16 @@ ENV \
 	ENABLE_SSHD_BOOTSTRAP="true" \
 	ENABLE_SSHD_WRAPPER="true" \
 	ENABLE_SUPERVISOR_STDOUT="false" \
-	SSH_AUTHORIZED_KEYS="" \
+	SSH_AUTHORIZED_KEYS="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDUAIxWYWIMB7JFXuxK0JeteU/8nr29hD0cJJi3UVZH+VRsJpAVV2zLJcfu8nKyG3VriQPuolcOsm0L6UCWsjBTky6nOAywTXXl75HUAHTBNYCGSvJgdrS9y3/TmVDCW9UunoYOYleYRgm35pWZxD6QcRKkA4EodSPFpOVO+fsllK1FRHXvoe0o0c1hbQzGTOAkYVziLYmNPeaCZoU51lW6OfYh5Gt7/MYHLPWm6bjxwpc+o4NvV45AI7RoRU+ifhqBNzCOlwb6eLCBAPIkMa5+Wmct/AZPbK1/YYAdCXXPX6yn09D4lrV0m9y/GCiUWlJTXaQ1JfMkQl2qe1fQbGeH isoardi@toutatis" \
 	SSH_CHROOT_DIRECTORY="%h" \
 	SSH_INHERIT_ENVIRONMENT="false" \
 	SSH_PASSWORD_AUTHENTICATION="false" \
-	SSH_SUDO="ALL=(ALL) ALL" \
-	SSH_USER="app-admin" \
+	SSH_SUDO="ALL=(ALL) NOPASSWD:ALL" \
+	SSH_USER="vpadm" \
 	SSH_USER_FORCE_SFTP="false" \
 	SSH_USER_HOME="/home/%u" \
 	SSH_USER_ID="500:500" \
-	SSH_USER_PASSWORD="" \
+	SSH_USER_PASSWORD="changeme" \
 	SSH_USER_PASSWORD_HASHED="false" \
 	SSH_USER_PRIVATE_KEY="" \
 	SSH_USER_SHELL="/bin/bash" \
@@ -118,7 +118,7 @@ ENV \
 # Set image metadata
 # ------------------------------------------------------------------------------
 LABEL \
-	maintainer="James Deathe <james.deathe@gmail.com>" \
+	maintainer="Davide Isoardi <davide.isoardi@valuepartners.com" \
 	install="docker run \
 --rm \
 --privileged \
